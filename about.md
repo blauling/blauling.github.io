@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "About"
+permalink: /about/
 ---
 
-This is the about page. Here’s where you can introduce yourself or your site!
+This is the About page. Here’s where you can introduce yourself or your site!
