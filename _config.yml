@@ -4,4 +4,10 @@ description: "A description of your website"
 baseurl: "" # Leave this blank unless it's a project page
 url: "https://blauling.github.io" # Replace with your GitHub Pages URL
 
+menu:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about/"
+
 # Any other theme-specific settings can be added here
