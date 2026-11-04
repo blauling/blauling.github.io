@@ -24,16 +24,13 @@ body {
   position: relative;
 }
 
-.home-background {
+.screen-background {
   inset: 0;
-  position: absolute;
-  z-index: 0;
-}
-
-.home-background video {
   height: 100%;
   object-fit: cover;
+  position: absolute;
   width: 100%;
+  z-index: 0;
 }
 
 .home-track {
@@ -100,6 +97,13 @@ body {
   bottom: 3rem;
   left: 1rem;
   position: absolute;
+  z-index: 1;
+}
+
+.home-screen > .content,
+.form-screen-inner {
+  position: relative;
+  z-index: 1;
   right: 1rem;
 }
 
