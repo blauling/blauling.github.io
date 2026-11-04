@@ -24,6 +24,6 @@
   </head>
   <body>
     <p>Redirecting to <a href="{{ .Permalink }}">the new page</a>…</p>
-    <script>window.location.replace({{ .Permalink | jsonify }});</script>
+    <script>window.location.replace("{{ .Permalink }}");</script>
   </body>
 </html>
