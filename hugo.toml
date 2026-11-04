@@ -2,6 +2,7 @@ baseURL = "https://blauling.github.io/"
 locale = "en-us"
 title = "Blauling"
 theme = "glim-midnight"
+enableRobotsTXT = true
 
 [params]
 title = "Blauling"
