@@ -26,16 +26,18 @@ body {
 
 .home-background {
   inset: 0;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
   z-index: 0;
 }
 
 .home-background video {
   inset: 0;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   position: absolute;
-  width: 100%;
+  width: 100vw;
   z-index: 0;
 }
 
