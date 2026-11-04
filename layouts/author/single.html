@@ -1,0 +1,24 @@
+{{ define "main" }}
+<link rel="stylesheet" href="{{ "css/author.css" | relURL }}">
+
+<main class="author-page">
+  <video class="author-background" autoplay muted loop playsinline aria-hidden="true">
+    <source src="{{ "bg.mp4" | relURL }}" type="video/mp4">
+  </video>
+  <div class="author-overlay"></div>
+  <section class="author-card" aria-labelledby="author-title">
+    <p class="author-label">AUTHOR</p>
+    <h1 id="author-title">{{ .Params.name | default .Title }}</h1>
+    <p class="author-subtitle">{{ .Params.subtitle }}</p>
+    <div class="author-links">
+      {{ range .Params.links }}
+        <a class="author-button" href="{{ .url | relURL }}"
+          {{ if .newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
+          {{ .name }}
+        </a>
+      {{ end }}
+    </div>
+    <a class="author-back" href="{{ "/" | relURL }}">Back home</a>
+  </section>
+</main>
+{{ end }}

@@ -1,9 +1,13 @@
 ---
 title: "Author"
+layout: "author"
+name: "Erik Blauling"
+subtitle: "Developer, creator, and curious builder."
+links:
+  - name: "GitHub"
+    url: "https://github.com/blauling"
+    newTab: true
+  - name: "About this site"
+    url: "/about/"
+    newTab: false
 ---
-
-## Erik
-
-Welcome to my site. I write about the projects and ideas I am working on.
-
-You can find me on [GitHub](https://github.com/blauling).

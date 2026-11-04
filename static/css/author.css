@@ -1,0 +1,95 @@
+.author-page {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  font-family: "Noto Sans Mono", monospace;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 2rem 1rem 5rem;
+  position: relative;
+}
+
+.author-background,
+.author-overlay {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.author-background {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.author-overlay {
+  background: rgba(3, 10, 22, .72);
+  z-index: -1;
+}
+
+.author-card {
+  backdrop-filter: blur(8px);
+  background: rgba(10, 18, 35, .82);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 12px;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .35);
+  max-width: 34rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.author-label {
+  color: #8ab4f8;
+  font-size: .75rem;
+  letter-spacing: .2em;
+  margin-bottom: .75rem;
+}
+
+.author-card h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin-bottom: .75rem;
+}
+
+.author-subtitle {
+  color: #d7e3f7;
+  margin-bottom: 2rem;
+}
+
+.author-links {
+  display: grid;
+  gap: .75rem;
+}
+
+.author-button {
+  background: #0d6efd;
+  border: 1px solid #3d8bfd;
+  border-radius: .375rem;
+  color: #fff;
+  display: block;
+  padding: .75rem 1rem;
+  text-decoration: none;
+  transition: background-color .15s ease, transform .15s ease;
+}
+
+.author-button:hover,
+.author-button:focus-visible {
+  background: #3d8bfd;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.author-back {
+  color: #c9d8ee;
+  display: inline-block;
+  margin-top: 1.5rem;
+  text-decoration: none;
+}
+
+.author-back:hover,
+.author-back:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
