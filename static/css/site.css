@@ -10,11 +10,33 @@ html {
 }
 
 body {
+  background: transparent;
   min-height: 100vh;
 }
 
+.mainbg {
+  min-height: 100vh;
+  position: relative;
+}
+
+.mainbg video {
+  z-index: 0;
+}
+
+.mainbg .content {
+  position: relative;
+  z-index: 1;
+}
+
+.home-contact-action {
+  background: transparent;
+  padding: 0 1rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
 .site-form-section {
-  background: #050505;
+  background: rgba(5, 5, 5, .92);
   color: #fafafa;
   max-height: 0;
   opacity: 0;
@@ -37,10 +59,11 @@ body {
   cursor: pointer;
   font: inherit;
   letter-spacing: .025em;
-  margin-bottom: 20px;
+  margin: 0 auto;
   padding: .375rem 0;
   text-shadow: 0 0 1px #fff;
   transition: color .15s ease, transform .15s ease;
+  max-width: 32rem;
   width: 100%;
 }
 

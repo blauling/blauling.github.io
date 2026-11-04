@@ -7,7 +7,8 @@
     <script>
       window.siteConfig = {
         supabaseUrl: "{{ .Site.Params.supabaseUrl }}",
-        supabasePublishableKey: "{{ .Site.Params.supabasePublishableKey }}"
+        supabasePublishableKey: "{{ .Site.Params.supabasePublishableKey }}",
+        clickToneUrl: "{{ "click-tone.wav" | relURL }}"
       };
     </script>
     <script src="{{ "js/forms.js" | relURL }}" defer></script>

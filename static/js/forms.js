@@ -1,29 +1,22 @@
 (() => {
   const config = window.siteConfig;
 
-  let audioContext;
+  let clickTone;
 
   const playClick = () => {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-
-    if (!AudioContextClass) {
+    if (!config || !config.clickToneUrl) {
       return;
     }
 
-    audioContext = audioContext || new AudioContextClass();
-    audioContext.resume();
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    const now = audioContext.currentTime;
+    clickTone = clickTone || new Audio(config.clickToneUrl);
+    clickTone.currentTime = 0;
+    const playback = clickTone.play();
 
-    oscillator.frequency.setValueAtTime(880, now);
-    oscillator.frequency.exponentialRampToValueAtTime(440, now + 0.045);
-    gain.gain.setValueAtTime(0.08, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
-    oscillator.connect(gain);
-    gain.connect(audioContext.destination);
-    oscillator.start(now);
-    oscillator.stop(now + 0.05);
+    if (playback) {
+      playback.catch(() => {
+        clickTone.pause();
+      });
+    }
   };
 
   document.querySelectorAll("a, button").forEach((element) => {
@@ -62,7 +55,6 @@
       const data = Object.fromEntries(new FormData(form).entries());
 
       button.disabled = true;
-      playClick();
       status.textContent = "Sending…";
 
       try {

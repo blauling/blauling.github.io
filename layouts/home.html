@@ -12,11 +12,7 @@
         <div class="contenttypewritter animatedText"></div>
         <div class="contentbtn">
           {{ range .Site.Params.links }}
-            {{ if eq .url "#contact" }}
-              <button type="button" class="contact-toggle" aria-controls="contact" aria-expanded="false">
-                {{ .name }} <span aria-hidden="true">&darr;</span>
-              </button>
-            {{ else }}
+            {{ if ne .url "#contact" }}
               <a href="{{ .url | relURL }}" class="btn btn-outline-light" role="button"
                 {{ if .newTab }}target="_blank" rel="noopener noreferrer"{{ else }}target="_self"{{ end }}>
                 {{ .name }}
@@ -27,6 +23,11 @@
       </div>
     </div>
   </div>
+</div>
+<div class="home-contact-action">
+  <button type="button" class="contact-toggle" aria-controls="contact" aria-expanded="false">
+    Contact <span aria-hidden="true">&darr;</span>
+  </button>
 </div>
 <section id="contact" class="site-form-section" aria-labelledby="contact-title" hidden>
   <div class="site-form-card">
