@@ -24,102 +24,83 @@ body {
   position: relative;
 }
 
-.home-hero {
-  height: 100%;
-}
-
-.home-hero video {
+.home-background {
+  inset: 0;
+  position: absolute;
   z-index: 0;
 }
 
-.home-hero .content {
-  position: relative;
-  z-index: 1;
-  transition: opacity .2s ease;
+.home-background video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
-.home-shell.panel-contact-open .home-hero .content,
-.home-shell.panel-requests-open .home-hero .content {
-  opacity: 0;
-  pointer-events: none;
+.home-track {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.home-screen,
+.form-screen {
+  background: rgba(5, 5, 5, .15);
+  height: 100%;
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  transition: transform .45s cubic-bezier(.22, .61, .36, 1);
+  width: 100%;
+}
+
+.home-screen {
+  transform: translateX(0);
+}
+
+.form-screen {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem 5rem;
+}
+
+.requests-screen {
+  transform: translateX(100%);
+}
+
+.contact-screen {
+  transform: translateY(100%);
+}
+
+.home-shell.panel-requests-open .home-screen {
+  transform: translateX(-100%);
+}
+
+.home-shell.panel-requests-open .requests-screen {
+  transform: translateX(0);
+}
+
+.home-shell.panel-contact-open .home-screen {
+  transform: translateY(-100%);
+}
+
+.home-shell.panel-contact-open .contact-screen {
+  transform: translateY(0);
+}
+
+.form-screen-inner {
+  margin: 0 auto;
+  max-width: 32rem;
+  min-height: 100%;
+  padding-top: 1rem;
 }
 
 .home-contact-action {
-  background: transparent;
   bottom: 3rem;
   left: 1rem;
-  padding: 0;
   position: absolute;
   right: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.home-contact-action {
-  position: absolute;
-  transition: opacity .2s ease;
-}
-
-.home-shell.panel-contact-open .home-contact-action,
-.home-shell.panel-requests-open .home-contact-action {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.contact-view {
-  background: rgba(5, 5, 5, .8);
-  inset: 0;
-  opacity: 0;
-  overflow: hidden auto;
-  padding: 2rem 1rem 5rem;
-  pointer-events: none;
-  position: absolute;
-  transform: translateY(100%);
-  transition: opacity .25s ease, transform .4s ease;
-  visibility: hidden;
-  z-index: 2;
-}
-
-.contact-view.is-open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-  visibility: visible;
-}
-
-.requests-view {
-  background: rgba(5, 5, 5, .8);
-  inset: 0;
-  opacity: 0;
-  overflow: hidden auto;
-  padding: 2rem 1rem 5rem;
-  pointer-events: none;
-  position: absolute;
-  transform: translateX(100%);
-  transition: opacity .25s ease, transform .4s ease;
-  visibility: hidden;
-  z-index: 2;
-}
-
-.requests-view.is-open {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(0);
-  visibility: visible;
-}
-
-.contact-view-inner {
-  margin: 0 auto;
-  max-width: 32rem;
-  min-height: 100%;
-  padding-top: 1rem;
-}
-
-.requests-view-inner {
-  margin: 0 auto;
-  max-width: 32rem;
-  min-height: 100%;
-  padding-top: 1rem;
 }
 
 .contact-close,
@@ -179,10 +160,6 @@ body {
 .requests-shell .site-form-card {
   position: relative;
   z-index: 1;
-}
-
-.site-form-section {
-  color: #fafafa;
 }
 
 .contact-toggle {
