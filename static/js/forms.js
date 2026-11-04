@@ -24,22 +24,24 @@
   });
 
   document.querySelectorAll(".contact-toggle").forEach((toggle) => {
-    toggle.addEventListener("click", () => {
-      const section = document.getElementById(toggle.getAttribute("aria-controls"));
-      const isHidden = section.hasAttribute("hidden");
+    const section = document.getElementById(toggle.getAttribute("aria-controls"));
+    const close = section.querySelector(".contact-close");
 
-      toggle.setAttribute("aria-expanded", String(isHidden));
-      section.toggleAttribute("hidden", !isHidden);
+    const setOpen = (isOpen) => {
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      section.setAttribute("aria-hidden", String(!isOpen));
+      section.toggleAttribute("inert", !isOpen);
+      section.classList.toggle("is-open", isOpen);
 
-      if (isHidden) {
-        requestAnimationFrame(() => {
-          section.classList.add("is-visible");
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+      if (isOpen) {
+        section.querySelector("input").focus();
       } else {
-        section.classList.remove("is-visible");
+        toggle.focus();
       }
-    });
+    };
+
+    toggle.addEventListener("click", () => setOpen(true));
+    close.addEventListener("click", () => setOpen(false));
   });
 
   if (!config || !config.supabaseUrl || !config.supabasePublishableKey) {

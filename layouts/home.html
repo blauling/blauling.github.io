@@ -1,6 +1,6 @@
 {{ define "main" }}
-<div>
-  <div class="mainbg">
+<main class="home-shell">
+  <div class="mainbg home-hero">
     <video autoplay muted loop playsinline>
       <source src="{{ "bg.webm" | relURL }}" type="video/webm">
     </video>
@@ -23,27 +23,31 @@
       </div>
     </div>
   </div>
-</div>
-<div class="home-contact-action">
-  <button type="button" class="contact-toggle" aria-controls="contact" aria-expanded="false">
-    Contact <span aria-hidden="true">&darr;</span>
-  </button>
-</div>
-<section id="contact" class="site-form-section" aria-labelledby="contact-title" hidden>
-  <div class="site-form-card">
-    <h2 id="contact-title">Contact</h2>
-    <form data-supabase-form data-table="contacts">
-      <label for="contact-name">Name</label>
-      <input id="contact-name" name="name" required maxlength="120" autocomplete="name">
-      <label for="contact-email">Email</label>
-      <input id="contact-email" name="email" type="email" required maxlength="320" autocomplete="email">
-      <label for="contact-message">Message</label>
-      <textarea id="contact-message" name="message" required maxlength="5000" rows="5"></textarea>
-      <button type="submit">Send</button>
-      <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-    </form>
   </div>
-</section>
+  <div class="home-contact-action">
+    <button type="button" class="contact-toggle" aria-controls="contact" aria-expanded="false">
+      Contact <span aria-hidden="true">&darr;</span>
+    </button>
+  </div>
+  <section id="contact" class="contact-view" aria-labelledby="contact-title" aria-hidden="true" inert>
+    <div class="contact-view-inner">
+      <button type="button" class="contact-close" aria-controls="contact">Back <span aria-hidden="true">&uarr;</span></button>
+      <div class="site-form-card">
+        <h2 id="contact-title">Contact</h2>
+        <form data-supabase-form data-table="contacts">
+          <label for="contact-name">Name</label>
+          <input id="contact-name" name="name" required maxlength="120" autocomplete="name">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" required maxlength="320" autocomplete="email">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" required maxlength="5000" rows="5"></textarea>
+          <button type="submit">Send</button>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
 <script>
   const textArray = {{ .Site.Params.phrases | jsonify | safeJS }};
 </script>

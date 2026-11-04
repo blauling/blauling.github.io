@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   {{- partial "head.html" . -}}
-  <body>
+  <body class="{{ if .IsHome }}home-page{{ else if eq .Section "requests" }}requests-page{{ end }}">
     {{- block "main" . }}{{- end }}
     {{- partial "footer.html" . -}}
     <script>

@@ -14,42 +14,133 @@ body {
   min-height: 100vh;
 }
 
-.mainbg {
-  min-height: 100vh;
+.home-page {
+  overflow: hidden;
+}
+
+.home-shell {
+  height: 100vh;
+  overflow: hidden;
   position: relative;
 }
 
-.mainbg video {
+.home-hero {
+  height: 100%;
+}
+
+.home-hero video {
   z-index: 0;
 }
 
-.mainbg .content {
+.home-hero .content {
   position: relative;
   z-index: 1;
 }
 
 .home-contact-action {
   background: transparent;
-  padding: 0 1rem 2rem;
+  bottom: 3rem;
+  left: 1rem;
+  padding: 0;
+  position: absolute;
+  right: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.home-contact-action {
+  position: absolute;
+}
+
+.contact-view {
+  background: rgba(5, 5, 5, .8);
+  inset: 0;
+  opacity: 0;
+  overflow: auto;
+  padding: 2rem 1rem 5rem;
+  pointer-events: none;
+  position: absolute;
+  transform: translateY(100%);
+  transition: opacity .25s ease, transform .4s ease;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.contact-view.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.contact-view-inner {
+  margin: 0 auto;
+  max-width: 32rem;
+  min-height: 100%;
+  padding-top: 1rem;
+}
+
+.contact-close,
+.form-back {
+  background: none;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  letter-spacing: .025em;
+  margin-bottom: 1.5rem;
+  padding: .375rem 0;
+  text-decoration: none;
+  text-shadow: 0 0 1px #fff;
+  transition: color .15s ease, transform .15s ease;
+}
+
+.contact-close:hover,
+.contact-close:focus-visible,
+.form-back:hover,
+.form-back:focus-visible {
+  color: #22d3ee;
+  transform: translateY(-1px);
+}
+
+.contact-close span,
+.form-back span {
+  color: #22d3ee;
+}
+
+.requests-page {
+  overflow: hidden;
+}
+
+.requests-shell {
+  align-items: center;
+  display: flex;
+  height: calc(100vh - 50px);
+  justify-content: center;
+  overflow: auto;
+  padding: 2rem 1rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.requests-background {
+  height: 100vh;
+  left: 0;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 0;
+}
+
+.requests-shell .site-form-card {
   position: relative;
   z-index: 1;
 }
 
 .site-form-section {
-  background: rgba(5, 5, 5, .92);
   color: #fafafa;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  padding: 5rem 1rem 3rem;
-  transform: translateY(1rem);
-  transition: max-height .35s ease, opacity .25s ease, transform .35s ease;
-}
-
-.site-form-section.is-visible {
-  max-height: 60rem;
-  opacity: 1;
-  transform: none;
 }
 
 .contact-toggle {
@@ -151,7 +242,17 @@ body {
 }
 
 .site-form-page {
-  margin-top: 2rem;
+  margin: 0;
+}
+
+.home-page .site-footer,
+.requests-page .site-footer {
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  position: fixed !important;
+  right: 0;
+  z-index: 3;
 }
 
 .site-footer {

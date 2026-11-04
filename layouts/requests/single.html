@@ -1,6 +1,10 @@
 {{ define "main" }}
-<main class="container py-5">
+<main class="requests-shell">
+  <video class="requests-background" autoplay muted loop playsinline aria-hidden="true">
+    <source src="{{ "bg.webm" | relURL }}" type="video/webm">
+  </video>
   <section class="site-form-card site-form-page" aria-labelledby="requests-title">
+    <a class="form-back" href="{{ "/" | relURL }}">Back <span aria-hidden="true">&uarr;</span></a>
     <h1 id="requests-title">{{ .Title }}</h1>
     <form data-supabase-form data-table="requests">
       <label for="request-message">What do you need?</label>
