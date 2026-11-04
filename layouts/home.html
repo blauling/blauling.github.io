@@ -22,6 +22,21 @@
     </div>
   </div>
 </div>
+<section id="contact" class="site-form-section" aria-labelledby="contact-title">
+  <div class="site-form-card">
+    <h2 id="contact-title">Contact</h2>
+    <form data-supabase-form data-table="contacts">
+      <label for="contact-name">Name</label>
+      <input id="contact-name" name="name" required maxlength="120" autocomplete="name">
+      <label for="contact-email">Email</label>
+      <input id="contact-email" name="email" type="email" required maxlength="320" autocomplete="email">
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" name="message" required maxlength="5000" rows="5"></textarea>
+      <button type="submit">Send</button>
+      <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
 <script>
   const textArray = {{ .Site.Params.phrases | jsonify | safeJS }};
 </script>

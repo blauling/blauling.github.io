@@ -4,5 +4,12 @@
   <body>
     {{- block "main" . }}{{- end }}
     {{- partial "footer.html" . -}}
+    <script>
+      window.siteConfig = {
+        supabaseUrl: "{{ .Site.Params.supabaseUrl }}",
+        supabasePublishableKey: "{{ .Site.Params.supabasePublishableKey }}"
+      };
+    </script>
+    <script src="{{ "js/forms.js" | relURL }}" defer></script>
   </body>
 </html>

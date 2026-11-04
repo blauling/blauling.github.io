@@ -8,8 +8,11 @@ enableRobotsTXT = true
 title = "Blauling"
 phrases = ["vrooom", "wooooosh", "brrrrrrr"]
 links = [
+  { name = "Contact", url = "#contact", newTab = false },
   { name = "Requests", url = "/requests/", newTab = false },
   { name = "About", url = "/about/", newTab = false },
   { name = "GitHub", url = "https://github.com/blauling", newTab = true },
 ]
+supabaseUrl = "https://djeerpphljdqmwaaohxj.supabase.co"
+supabasePublishableKey = "sb_publishable_2SGkapdDlOhbwNSQR8xydw_N1KXe2Yd"
 footer = "Made with <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank'>💙</a>"
