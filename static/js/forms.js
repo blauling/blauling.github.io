@@ -23,26 +23,41 @@
     element.addEventListener("pointerdown", playClick);
   });
 
-  document.querySelectorAll(".contact-toggle").forEach((toggle) => {
-    const section = document.getElementById(toggle.getAttribute("aria-controls"));
-    const close = section.querySelector(".contact-close");
-
-    const setOpen = (isOpen) => {
-      toggle.setAttribute("aria-expanded", String(isOpen));
-      section.setAttribute("aria-hidden", String(!isOpen));
-      section.toggleAttribute("inert", !isOpen);
-      section.classList.toggle("is-open", isOpen);
-
-      if (isOpen) {
-        section.querySelector("input").focus();
-      } else {
-        toggle.focus();
-      }
-    };
-
-    toggle.addEventListener("click", () => setOpen(true));
-    close.addEventListener("click", () => setOpen(false));
+  document.querySelectorAll(".panel-toggle").forEach((toggle) => {
+    toggle.addEventListener("click", () => setPanel(toggle.dataset.panel, true, toggle));
   });
+
+  document.querySelectorAll(".panel-back").forEach((back) => {
+    back.addEventListener("click", () => setPanel(back.dataset.panel, false, back));
+  });
+
+  function setPanel(panelName, isOpen, source) {
+    const panel = document.getElementById(panelName);
+    const shell = document.querySelector(".home-shell");
+
+    if (!panel || !shell) {
+      return;
+    }
+
+    document.querySelectorAll(".panel-toggle").forEach((toggle) => {
+      if (toggle.dataset.panel === panelName) {
+        toggle.setAttribute("aria-expanded", String(isOpen));
+      }
+    });
+    panel.setAttribute("aria-hidden", String(!isOpen));
+    panel.toggleAttribute("inert", !isOpen);
+    panel.classList.toggle("is-open", isOpen);
+    shell.classList.toggle(`panel-${panelName}-open`, isOpen);
+
+    if (isOpen) {
+      const field = panel.querySelector("input, textarea");
+      if (field) {
+        field.focus();
+      }
+    } else if (source.classList.contains("panel-back")) {
+      document.querySelector(`.panel-toggle[data-panel="${panelName}"]`).focus();
+    }
+  }
 
   if (!config || !config.supabaseUrl || !config.supabasePublishableKey) {
     return;

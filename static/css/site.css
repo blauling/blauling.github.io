@@ -53,7 +53,8 @@ body {
   transition: opacity .2s ease;
 }
 
-.home-shell:has(.contact-view.is-open) .home-contact-action {
+.home-shell.panel-contact-open .home-contact-action,
+.home-shell.panel-requests-open .home-contact-action {
   opacity: 0;
   pointer-events: none;
 }
@@ -62,7 +63,7 @@ body {
   background: rgba(5, 5, 5, .8);
   inset: 0;
   opacity: 0;
-  overflow: auto;
+  overflow: hidden auto;
   padding: 2rem 1rem 5rem;
   pointer-events: none;
   position: absolute;
@@ -79,7 +80,35 @@ body {
   visibility: visible;
 }
 
+.requests-view {
+  background: rgba(5, 5, 5, .8);
+  inset: 0;
+  opacity: 0;
+  overflow: hidden auto;
+  padding: 2rem 1rem 5rem;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(100%);
+  transition: opacity .25s ease, transform .4s ease;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.requests-view.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  visibility: visible;
+}
+
 .contact-view-inner {
+  margin: 0 auto;
+  max-width: 32rem;
+  min-height: 100%;
+  padding-top: 1rem;
+}
+
+.requests-view-inner {
   margin: 0 auto;
   max-width: 32rem;
   min-height: 100%;
