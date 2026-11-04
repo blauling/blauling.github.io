@@ -1,24 +1,37 @@
 {{ define "main" }}
 <link rel="stylesheet" href="{{ "css/author.css" | relURL }}">
 
-<main class="author-page">
-  <video class="author-background" autoplay muted loop playsinline aria-hidden="true">
-    <source src="{{ "bg.mp4" | relURL }}" type="video/mp4">
-  </video>
-  <div class="author-overlay"></div>
-  <section class="author-card" aria-labelledby="author-title">
-    <p class="author-label">AUTHOR</p>
-    <h1 id="author-title">{{ .Params.name | default .Title }}</h1>
-    <p class="author-subtitle">{{ .Params.subtitle }}</p>
-    <div class="author-links">
-      {{ range .Params.links }}
-        <a class="author-button" href="{{ .url | relURL }}"
-          {{ if .newTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
-          {{ .name }}
+<main class="profile-page">
+  <div class="profile-glow" aria-hidden="true"></div>
+  <section class="profile-content" aria-labelledby="author-title">
+    <header class="profile-header">
+      <h1 id="author-title">{{ .Params.handle | default .Title }}</h1>
+      <p>{{ .Params.hero }}</p>
+    </header>
+
+    <nav class="profile-links" aria-label="Author links">
+      {{ $index := 1 }}
+      {{ range .Params.projects }}
+        <a class="profile-row" href="{{ .url | relURL }}" style="--i: {{ $index }}">
+          <span>{{ .name }}</span>
+          <span class="profile-meta">{{ .description }}</span>
+          <span class="profile-arrow" aria-hidden="true">&rarr;</span>
         </a>
+        {{ $index = add $index 1 }}
       {{ end }}
-    </div>
-    <a class="author-back" href="{{ "/" | relURL }}">Back home</a>
+      {{ range .Params.links }}
+        <a class="profile-row" href="{{ .url | relURL }}" style="--i: {{ $index }}"
+          {{ if hasPrefix .url "http" }}target="_blank" rel="noopener noreferrer"{{ end }}>
+          <span>{{ .name }}</span>
+          <span class="profile-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        {{ $index = add $index 1 }}
+      {{ end }}
+    </nav>
+
+    <footer class="profile-footer">
+      <a href="{{ "/" | relURL }}">back home</a>
+    </footer>
   </section>
 </main>
 {{ end }}

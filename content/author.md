@@ -1,13 +1,16 @@
 ---
 title: "Author"
 layout: "author"
-name: "Erik Blauling"
-subtitle: "Developer, creator, and curious builder."
+handle: "blauling"
+hero: "developer and curious builder."
+description: "My projects, links, and online presence."
 links:
-  - name: "GitHub"
+  - name: "github"
     url: "https://github.com/blauling"
-    newTab: true
-  - name: "About this site"
+  - name: "about"
     url: "/about/"
-    newTab: false
+projects:
+  - name: "this site"
+    description: "my personal website"
+    url: "/"
 ---
