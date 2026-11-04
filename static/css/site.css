@@ -50,6 +50,12 @@ body {
 
 .home-contact-action {
   position: absolute;
+  transition: opacity .2s ease;
+}
+
+.home-shell:has(.contact-view.is-open) .home-contact-action {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .contact-view {
