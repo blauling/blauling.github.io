@@ -1,0 +1,5 @@
+<footer class="site-footer">
+  {{ if .Site.Params.footer }}
+    <p>{{ .Site.Params.footer | safeHTML }}</p>
+  {{ end }}
+</footer>

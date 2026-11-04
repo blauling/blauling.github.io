@@ -1,5 +1,16 @@
 ---
-title: "About"
+title: "Author"
+layout: "author"
+handle: "blauling"
+hero: "developer and curious builder."
+description: "My projects, links, and online presence."
+links:
+  - name: "github"
+    url: "https://github.com/blauling"
+  - name: "about"
+    url: "/about/"
+projects:
+  - name: "this site"
+    description: "my personal website"
+    url: "/"
 ---
-
-This is the About page. Replace this text with information about yourself or your site.

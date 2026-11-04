@@ -1,0 +1,25 @@
+.site-footer {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  font-family: system-ui, -apple-system, sans-serif;
+  height: 50px;
+  justify-content: center;
+  margin-top: 1rem;
+  position: static !important;
+  width: 100%;
+}
+
+.site-footer p {
+  color: whitesmoke;
+  margin: 0;
+}
+
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: grey;
+}
