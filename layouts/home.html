@@ -1,10 +1,12 @@
 {{ define "main" }}
 <main class="home-shell">
+  <div class="home-background" aria-hidden="true">
+    <video autoplay muted loop playsinline>
+      <source src="{{ "bg.webm" | relURL }}" type="video/webm">
+    </video>
+  </div>
   <div class="home-track">
     <section class="home-screen" aria-label="Home">
-      <video class="screen-background" autoplay muted loop playsinline aria-hidden="true">
-        <source src="{{ "bg.webm" | relURL }}" type="video/webm">
-      </video>
       <div class="content">
         <div>
           <div class="contenthead">
@@ -35,9 +37,6 @@
     </section>
 
     <section id="requests" class="form-screen requests-screen" aria-labelledby="requests-title" aria-hidden="true" inert>
-      <video class="screen-background" muted loop playsinline aria-hidden="true">
-        <source src="{{ "bg.webm" | relURL }}" type="video/webm">
-      </video>
       <div class="form-screen-inner">
         <button type="button" class="contact-close panel-back" data-panel="requests" aria-controls="requests">Back <span aria-hidden="true">&larr;</span></button>
         <div class="site-form-card">
@@ -53,9 +52,6 @@
     </section>
 
     <section id="contact" class="form-screen contact-screen" aria-labelledby="contact-title" aria-hidden="true" inert>
-      <video class="screen-background" muted loop playsinline aria-hidden="true">
-        <source src="{{ "bg.webm" | relURL }}" type="video/webm">
-      </video>
       <div class="form-screen-inner">
         <button type="button" class="contact-close panel-back" data-panel="contact" aria-controls="contact">Back <span aria-hidden="true">&uarr;</span></button>
         <div class="site-form-card">

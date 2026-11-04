@@ -31,27 +31,6 @@
     back.addEventListener("click", () => setPanel(back.dataset.panel, false, back));
   });
 
-  const screenVideos = [...document.querySelectorAll(".screen-background")];
-  const syncScreenVideos = (activePanel) => {
-    const activeVideo = activePanel
-      ? document.querySelector(`#${activePanel} .screen-background`)
-      : document.querySelector(".home-screen .screen-background");
-    const currentTime = screenVideos.find((video) => !video.paused)?.currentTime;
-
-    screenVideos.forEach((video) => {
-      if (video !== activeVideo) {
-        video.pause();
-      }
-    });
-
-    if (activeVideo) {
-      if (Number.isFinite(currentTime)) {
-        activeVideo.currentTime = currentTime;
-      }
-      activeVideo.play().catch(() => {});
-    }
-  };
-
   function setPanel(panelName, isOpen, source) {
     const panel = document.getElementById(panelName);
     const shell = document.querySelector(".home-shell");
@@ -69,7 +48,6 @@
     panel.toggleAttribute("inert", !isOpen);
     panel.classList.toggle("is-open", isOpen);
     shell.classList.toggle(`panel-${panelName}-open`, isOpen);
-    syncScreenVideos(isOpen ? panelName : null);
 
     if (isOpen) {
       const field = panel.querySelector("input, textarea");
