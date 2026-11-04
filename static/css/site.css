@@ -1,3 +1,18 @@
+.site-footer,
+html,
+body {
+  background: #050505;
+  color: #fafafa;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+}
+
 .site-footer {
   align-items: center;
   background-color: transparent;

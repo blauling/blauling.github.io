@@ -2,14 +2,7 @@
 <html>
   {{- partial "head.html" . -}}
   <body>
-    <audio id="background-music" loop preload="auto">
-      <source src="{{ "alphawaves1.mp3" | relURL }}" type="audio/mpeg">
-    </audio>
-    <audio id="click-tone" preload="auto">
-      <source src="{{ "click-tone.wav" | relURL }}" type="audio/wav">
-    </audio>
     {{- block "main" . }}{{- end }}
     {{- partial "footer.html" . -}}
-    <script src="{{ "js/site.js" | relURL }}" defer></script>
   </body>
 </html>
