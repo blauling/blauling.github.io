@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="dark">
+    <meta http-equiv="refresh" content="0; url={{ .Permalink }}">
+    <title>Redirecting…</title>
+    <style>
+      :root { color-scheme: dark; }
+      html, body {
+        background: #050505;
+        color: #fafafa;
+        font-family: system-ui, sans-serif;
+        min-height: 100%;
+      }
+      body {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+      }
+      a { color: #22d3ee; }
+    </style>
+  </head>
+  <body>
+    <p>Redirecting to <a href="{{ .Permalink }}">the new page</a>…</p>
+    <script>window.location.replace({{ .Permalink | jsonify }});</script>
+  </body>
+</html>
