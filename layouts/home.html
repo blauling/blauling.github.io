@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div>
+  <div class="mainbg">
+    <video autoplay muted loop playsinline>
+      <source src="{{ "bg.webm" | relURL }}" type="video/webm">
+    </video>
+    <div class="content">
+      <div>
+        <div class="contenthead">
+          <h3 class="contentheading">{{ .Site.Params.title }}</h3>
+        </div>
+        <div class="contenttypewritter animatedText"></div>
+        <div class="contentbtn">
+          {{ range .Site.Params.links }}
+            <a href="{{ .url | relURL }}" class="btn btn-outline-light" role="button"
+              {{ if .newTab }}target="_blank" rel="noopener noreferrer"{{ else }}target="_self"{{ end }}>
+              {{ .name }}
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const textArray = {{ .Site.Params.phrases | jsonify | safeJS }};
+</script>
+<script src="{{ "js/script.js" | relURL }}"></script>
+{{ end }}
